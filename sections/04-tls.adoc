@@ -1,0 +1,21 @@
+
+== TLS Versions
+
+These cipher suites make use of the authenticated encryption with
+additional data defined in TLS 1.2 [RFC5288].
+
+* They *MUST NOT* be negotiated in older versions of TLS.
+
+* Clients *MUST NOT* offer these cipher suites if they do not offer
+TLS 1.2 or later.
+
+* Servers that select an earlier version of TLS *MUST NOT* select one
+of these ciphersuites.  Earlier versions do not have support for AEAD; for instance,
+the TLSCiphertext structure does not have the "aead" option in TLS
+1.1.  Because TLS has no way for the client to indicate that it
+supports TLS 1.2 but not earlier versions, a non-compliant server
+might potentially negotiate TLS 1.1 or earlier and select one of the
+cipher suites in this document.
+
+* Clients *MUST* check the TLS version and generate a fatal
+"illegal_parameter" alert if they detect an incorrect version.

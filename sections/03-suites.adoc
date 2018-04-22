@@ -1,0 +1,148 @@
+
+[[ciphers]]
+== Cipher Suites
+
+Cipher suites defined in this document are based on the SM4-CCM
+Authenticated Encryption with Associated Data (AEAD) algorithms
+AEAD_SM4_128_CCM and AEAD_SM4_256_CCM described in [SM4-AE-DRAFT-TODO].
+
+=== HMAC-Based
+
+These cipher suites use SM4 in Cipher Block Chaining
+(CBC) mode with an HMAC-based MAC:
+
+[source]
+----
+CipherSuite TLS_ECDHE_ECDSA_WITH_SM4_CBC_SM3  = {0xYY,0xYY};
+CipherSuite TLS_ECDH_ECDSA_WITH_SM4_CBC_SM3   = {0xYY,0xYY};
+CipherSuite TLS_ECDHE_RSA_WITH_SM4_CBC_SM3    = {0xYY,0xYY};
+CipherSuite TLS_ECDH_RSA_WITH_SM4_CBC_SM3     = {0xYY,0xYY};
+----
+
+These cipher suites are the same as the corresponding cipher
+suites in <<RFC5289>> (with names here ending in "_SM3" in place of "_SHA256"),
+except for the MAC and Pseudo Random Function (PRF) algorithms.
+
+The PRF is the TLS PRF <<RFC5246>> with SM3 as the hash function.
+The MAC is HMAC <<RFC2104>> with SM3 as the hash function.
+
+
+=== Galois Counter Mode-Based
+
+These cipher suites use the same asymmetric algorithms as
+those in the previous section, but use the authenticated
+encryption modes defined in TLS 1.3 <<I-D.ietf-tls-tls13>>
+with SM4 in Galois Counter Mode (GCM):
+
+[source]
+----
+CipherSuite TLS_ECDHE_ECDSA_WITH_SM4_GCM_SM4  = {0xYY,0xYY};
+CipherSuite TLS_ECDH_ECDSA_WITH_SM4_GCM_SM4   = {0xYY,0xYY};
+CipherSuite TLS_ECDHE_RSA_WITH_SM4_GCM_SM4    = {0xYY,0xYY};
+CipherSuite TLS_ECDH_RSA_WITH_SM4_GCM_SM4     = {0xYY,0xYY};
+CipherSuite TLS_RSA_WITH_SM4_GCM_SM3          = {0xYY,0xYY};
+CipherSuite TLS_DHE_RSA_WITH_SM4_GCM_SM3      = {0xYY,0xYY};
+CipherSuite TLS_DH_RSA_WITH_SM4_GCM_SM3       = {0xYY,0xYY};
+CipherSuite TLS_DHE_DSS_WITH_SM4_GCM_SM3      = {0xYY,0xYY};
+CipherSuite TLS_DH_DSS_WITH_SM4_GCM_SM3       = {0xYY,0xYY};
+CipherSuite TLS_DH_anon_WITH_SM4_GCM_SM3      = {0xYY,0xYY};
+----
+
+These cipher suites use the authenticated encryption with additional data
+algorithm AEAD_SM4_GCM described in [SM4-DRAFT-REF].
+
+Each of these AEAD algorithms uses a 128-bit authentication tag
+with GCM (in particular, as described in <<RFC4366,3.5>> and <<RFC5288,3>>.
+
+The PRF is the TLS PRF <<RFC5246>> with SM3 as the hash function.
+
+[[ccm]]
+=== Counter and CBC-MAC Mode-Based
+
+These cipher suites use the same asymmetric algorithms as
+those in the previous section, but use the authenticated
+encryption modes defined in TLS 1.3 with SM4 in Counter and CBC-MAC Mode
+(CCM):
+
+[source]
+----
+CipherSuite TLS_ECDHE_ECDSA_WITH_SM4_CCM   = {0xYY,0xYY};
+CipherSuite TLS_ECDH_ECDSA_WITH_SM4_CCM    = {0xYY,0xYY};
+CipherSuite TLS_ECDHE_RSA_WITH_SM4_CCM     = {0xYY,0xYY};
+CipherSuite TLS_ECDH_RSA_WITH_SM4_CCM      = {0xYY,0xYY};
+CipherSuite TLS_RSA_WITH_SM4_CCM           = {0xYY,0xYY};
+CipherSuite TLS_DHE_RSA_WITH_SM4_CCM       = {0xYY,0xYY};
+CipherSuite TLS_DH_RSA_WITH_SM4_CCM        = {0xYY,0xYY};
+CipherSuite TLS_DHE_DSS_WITH_SM4_CCM       = {0xYY,0xYY};
+CipherSuite TLS_DH_DSS_WITH_SM4_CCM        = {0xYY,0xYY};
+CipherSuite TLS_DH_anon_WITH_SM4_CCM       = {0xYY,0xYY};
+----
+
+
+These cipher suites use the authenticated encryption with additional data
+algorithm AEAD_SM4_CCM described in [SM4-DRAFT-REF].
+
+Each of these AEAD algorithms uses a 128-bit authentication tag
+with CCM (in particular, as described in <<RFC4366,3.5>> and <<RFC5288,3>>.
+
+The "nonce" input to the AEAD algorithm is as defined in <<RFC6655>>.
+
+The PRF is the TLS PRF <<RFC5246>> with SM3 as the hash function.
+
+
+
+=== OCB
+
+The following cipher suites are defined:
+
+[source]
+----
+CipherSuite TLS_ECDHE_ECDSA_WITH_SM4_OCB = {0xYY,0xYY}
+...
+----
+
+The "nonce" input to the AEAD algorithm is as defined in <<RFC6655>>.
+
+The PRF is the TLS PRF <<RFC5246>> with SM3 as the hash function.
+
+Further requirements provided in <<RFC7251,2>> apply.
+
+////
+From rfc7251
+
+   In DTLS, the 64-bit seq_num field is the 16-bit DTLS epoch field
+   concatenated with the 48-bit sequence_number field.  The epoch and
+   sequence_number appear in the DTLS record layer.
+
+   This construction allows the internal counter to be 32 bits long,
+   which is a convenient size for use with CCM.
+
+   The ECDHE_ECDSA key exchange is performed as defined in [RFC4492],
+   with the following additional stipulations:
+
+   o  Curves with a cofactor equal to one SHOULD be used; this
+      simplifies their use.
+
+   o  The uncompressed point format MUST be supported.  Other point
+      formats MAY be used.
+
+   o  The client SHOULD offer the elliptic_curves extension, and the
+      server SHOULD expect to receive it.
+
+   o  The client MAY offer the ec_point_formats extension, but the
+      server need not expect to receive it.
+
+   o  Fundamental ECC algorithms [RFC6090] MAY be used as an
+      implementation method.
+
+   o  If the server uses a certificate, then the requirements in RFC
+      4492 apply: "The server's certificate MUST contain an ECDSA-
+      capable public key and be signed with ECDSA."  Guidance on
+      acceptable choices of hashes and curves that can be used with each
+      cipher suite is detailed in Section 2.2.  The Signature Algorithms
+      extension (Section 7.4.1.4.1 of [RFC5246]) SHOULD be used to
+      indicate support of those signature and hash algorithms.  If a
+      client certificate is used, the same criteria SHOULD apply to it.
+////
+
+

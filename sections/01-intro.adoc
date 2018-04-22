@@ -1,0 +1,39 @@
+
+== Introduction
+
+The SM3 <<I-D.sca-cfrg-sm3>> <<GBT.32905-2016>> <<ISO.IEC.10118-3>> and
+SM4 <<I-D.ribose-cfrg-sm4>> <<GBT.32907-2016>> <<ISO.IEC.18033-3.AMD2>>
+algorithms are published by the
+State Cryptography Administration (SCA) of China <<SCA>> for authorized use
+within China. Both algorithms are published in public, and
+now commonly available in cryptographic libraries.
+
+SM3 is as a cryptographic hash algorithm that produces an output hash
+value of 256 bits long, based on 512-bit input message blocks, on input
+lengths up to $$2^(m)$$.
+
+SM4 is a symmetric encryption algorithm, a blockcipher to be exact,
+designed for data encryption that acts on 128-bit blocks.
+
+TLS versions at and beyond 1.2 <<RFC5246>> contain support for
+authenticated encryption with additional data (AEAD) cipher modes <<RFC5116>>.
+
+This document describes the use of SM4 <<I-D.ribose-cfrg-sm4>> in conjunction
+with various key exchange mechanisms as a cipher suite for TLS, in two ways:
+
+* by using SM4 with authentication encryption modes (CCM, GCM, OCB), in
+a manner similar to <<RFC7251>>;
+
+* by using SM4 together with SM3 <<I-D.sca-cfrg-sm3>> as MAC, in a
+manner similar to <<RFC5288>>, <<RFC5289>> and <<RFC7539>>.
+
+
+TODO: describe SM4 AE modes...
+
+////
+SM4-{GCM,...} are authenticated encryption with associated data (AEAD) ciphers
+that provides both confidentiality and data origin authentication.
+
+The following sections define cipher suites based on RSA, DSA, and
+Diffie-Hellman key exchanges.
+////

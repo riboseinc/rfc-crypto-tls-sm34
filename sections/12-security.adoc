@@ -1,0 +1,46 @@
+
+[[security-considerations]]
+== Security Considerations
+
+The security considerations in <<RFC4346>>, <<RFC4492>>,
+<<I-D.ribose-cfrg-sm4>>, <<I-D.sca-cfrg-sm3>> apply.
+
+* Products and services that utilize cryptography are regulated by the SCA
+  <<SCA>>; they must be explicitly approved or certified by the SCA before being
+  allowed to be sold or used in China.
+
+* The cipher suites described in this document *SHOULD** only
+  be used with TLS 1.3 or greater <<I-D.ietf-tls-tls13>>.
+
+* CCM security requires that the counter never be reused. The nonce/IV
+  requirement in <<ccm>> is designed to prevent counter reuse.
+
+////
+from 7251
+5.1.  Perfect Forward Secrecy
+
+The perfect forward secrecy properties of ephemeral Diffie-Hellman
+cipher suites are discussed in the security analysis of [RFC5246].
+This analysis applies to the ECDHE cipher suites.
+
+5.3.  Hardware Security Modules
+
+A cipher suite can be implemented in such a way that the secret keys
+and private keys are stored inside a Hardware Security Module (HSM),
+and the cryptographic operations involving those keys are performed
+by the HSM on data provided by an application interacting with the
+HSM through an interface such as that defined by the Cryptographic
+Token Interface Standard [PKCS11].  When an AEAD cipher suite, such
+as those in this note, are implemented in this way, special handling
+of the nonce is required.  This is because the "salt" part of the
+nonce is set to the client_write_IV or server_write_IV, which is a
+function of the TLS master secret.
+
+Another potential issue with the Cryptographic Token Interface
+Standard is that the use of the DecryptUpdate function is not
+possible with the CCM decrypt operation or the decrypt operation of
+any other authenticated encryption method.  This is because the
+DecryptUpdate requires that post-decryption plaintext be returned
+before the authentication check is completed.
+
+////

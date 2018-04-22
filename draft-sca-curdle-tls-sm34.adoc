@@ -1,0 +1,65 @@
+= SM3 and SM4 Cipher Suites for TLS
+:doctype: internet-draft
+:name: draft-sca-curdle-tls-sm34-00
+:abbrev: SM3/SM4 TLS Cipher Suites
+:status: info
+:ipr: trust200902
+:submission-type: IRTF
+:area: sec
+:intended-series: full-standard
+:workgroup: Internet Research Task Force
+//:workgroup: Crypto Forum Research Group
+:revdate: 2018-04-22T00:00:00Z
+:rfc2629xslt: true
+:fullname: Paul Y. Yang
+:lastname: Yang
+:forename_initials: Y.
+:organization: BaishanCloud
+:street: Building 16-3, Baitasan Street
+:city: Shenyang
+:code: 110000
+:region: Liaoning
+:country: People's Republic of China
+:uri: https://www.baishancloud.com
+:email: yang.yang@baishancloud.com
+:fullname_2: Ronald Henry Tse
+:lastname_2: Tse
+:forename_initials_2: R. H.
+:organization_2: Ribose
+:street_2: Suite 1111, 1 Pedder Street
+:city_2: Central
+:region_2: Hong Kong
+:country_2: People's Republic of China
+:uri_2: https://www.ribose.com
+:email_2: ronald.tse@ribose.com
+:fullname_3: Markku-Juhani O. Saarinen
+:lastname_3: Saarinen
+:forename_initials_3: M-J.
+:organization_3: Independent Consultant
+:uri_3: https://mjos.fi/
+:email_3: mjos@iki.fi
+:fullname_4: Wai Kit Wong
+:lastname_4: Wong
+:forename_initials_4: W. K.
+:organization_4: Hang Seng Management College
+:street_4: Hang Shin Link, Siu Lek Yuen
+:city_4: Shatin
+:region_4: Hong Kong
+:country_4: People's Republic of China
+:uri_4: https://www.hsmc.edu.hk
+:email_4: wongwk@hsmc.edu.hk
+
+include::sections/00-abstract.adoc[]
+include::sections/01-intro.adoc[]
+include::sections/02-conventions.adoc[]
+include::sections/03-suites.adoc[]
+include::sections/04-tls.adoc[]
+include::sections/12-security.adoc[]
+include::sections/13-iana.adoc[]
+
+// must give references before appendix!
+
+include::sections/98-references.adoc[]
+include::sections/99-acknowledgements.adoc[]
+
+
