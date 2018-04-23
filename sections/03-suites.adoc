@@ -4,7 +4,7 @@
 
 Cipher suites defined in this document are based on the SM4-CCM
 Authenticated Encryption with Associated Data (AEAD) algorithms
-AEAD_SM4_128_CCM and AEAD_SM4_256_CCM described in [SM4-DRAFT-REF].
+AEAD_SM4_128_CCM and AEAD_SM4_256_CCM described in [<<I-D.ribose-cfrg-sm4ae>>].
 
 === HMAC-Based
 
@@ -50,7 +50,7 @@ CipherSuite TLS_DH_anon_WITH_SM4_GCM_SM3      = {0xYY,0xYY};
 ----
 
 These cipher suites use the authenticated encryption with additional data
-algorithm AEAD_SM4_GCM described in [SM4-DRAFT-REF].
+algorithm AEAD_SM4_GCM described in [<<I-D.ribose-cfrg-sm4ae>>].
 
 Each of these AEAD algorithms uses a 128-bit authentication tag
 with GCM (in particular, as described in <<RFC4366,3.5>> and <<RFC5288,3>>.
@@ -81,7 +81,7 @@ CipherSuite TLS_DH_anon_WITH_SM4_CCM       = {0xYY,0xYY};
 
 
 These cipher suites use the authenticated encryption with additional data
-algorithm AEAD_SM4_CCM described in [SM4-DRAFT-REF].
+algorithm AEAD_SM4_CCM described in [<<I-D.ribose-cfrg-sm4ae>>].
 
 Each of these AEAD algorithms uses a 128-bit authentication tag
 with CCM (in particular, as described in <<RFC4366,3.5>> and <<RFC5288,3>>.
