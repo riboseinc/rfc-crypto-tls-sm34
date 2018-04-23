@@ -36,10 +36,10 @@ with SM4 in Galois Counter Mode (GCM):
 
 [source]
 ----
-CipherSuite TLS_ECDHE_ECDSA_WITH_SM4_GCM_SM4  = {0xYY,0xYY};
-CipherSuite TLS_ECDH_ECDSA_WITH_SM4_GCM_SM4   = {0xYY,0xYY};
-CipherSuite TLS_ECDHE_RSA_WITH_SM4_GCM_SM4    = {0xYY,0xYY};
-CipherSuite TLS_ECDH_RSA_WITH_SM4_GCM_SM4     = {0xYY,0xYY};
+CipherSuite TLS_ECDHE_ECDSA_WITH_SM4_GCM_SM3  = {0xYY,0xYY};
+CipherSuite TLS_ECDH_ECDSA_WITH_SM4_GCM_SM3   = {0xYY,0xYY};
+CipherSuite TLS_ECDHE_RSA_WITH_SM4_GCM_SM3    = {0xYY,0xYY};
+CipherSuite TLS_ECDH_RSA_WITH_SM4_GCM_SM3     = {0xYY,0xYY};
 CipherSuite TLS_RSA_WITH_SM4_GCM_SM3          = {0xYY,0xYY};
 CipherSuite TLS_DHE_RSA_WITH_SM4_GCM_SM3      = {0xYY,0xYY};
 CipherSuite TLS_DH_RSA_WITH_SM4_GCM_SM3       = {0xYY,0xYY};
