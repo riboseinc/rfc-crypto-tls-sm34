@@ -1,7 +1,7 @@
-= Internet-Draft: SM4
+= Internet-Draft: Using SM3 and SM4 In TLS
 
-image:https://img.shields.io/travis/riboseinc/rfc-crypto-sm4/master.svg[
-	Build Status, link="https://travis-ci.org/riboseinc/rfc-crypto-sm4"]
+image:https://img.shields.io/travis/riboseinc/rfc-crypto-tls-sm34/master.svg[
+	Build Status, link="https://travis-ci.org/riboseinc/rfc-crypto-tls-sm34"]
 
 This Internet-Draft is written in pure AsciiDoc using the excellent
 https://github.com/riboseinc/asciidoctor-rfc[`asciidoctor-rfc` gem].
@@ -10,7 +10,7 @@ https://github.com/riboseinc/asciidoctor-rfc[`asciidoctor-rfc` gem].
 
 [source,sh]
 ----
-git clone https://github.com/riboseinc/rfc-crypto-sm4
+git clone https://github.com/riboseinc/rfc-crypto-tls-sm34
 ----
 
 == Installing Build Tools
@@ -35,7 +35,7 @@ bundle install
 ----
 make all
 # or
-export ID_NAME=ribose-cfrg-sm4
+export ID_NAME=sca-curdle-tls-sm34
 make draft-${ID_NAME}.txt
 ----
 
@@ -50,7 +50,7 @@ prevent it complaining about the location.
 
 [source,sh]
 ----
-export ID_NAME=ribose-cfrg-sm4
+export ID_NAME=sca-curdle-tls-sm34-00
 make draft-${ID_NAME}.nits
 ----
 
@@ -58,7 +58,7 @@ make draft-${ID_NAME}.nits
 
 [source,sh]
 ----
-export ID_NAME=ribose-cfrg-sm4
+export ID_NAME=sca-curdle-tls-sm34-00
 pcregrep --color='auto' -n "[\x80-\xFF]" draft-${ID_NAME}.xml
 ----
 
@@ -66,7 +66,7 @@ pcregrep --color='auto' -n "[\x80-\xFF]" draft-${ID_NAME}.xml
 
 [source,sh]
 ----
-export ID_NAME=ribose-cfrg-sm4
+export ID_NAME=sca-curdle-tls-sm34-00
 make clean all; open draft-${ID_NAME}.txt
 ----
 
