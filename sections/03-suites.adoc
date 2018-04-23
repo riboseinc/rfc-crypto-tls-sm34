@@ -4,7 +4,7 @@
 
 Cipher suites defined in this document are based on the SM4-CCM
 Authenticated Encryption with Associated Data (AEAD) algorithms
-AEAD_SM4_128_CCM and AEAD_SM4_256_CCM described in [SM4-AE-DRAFT-TODO].
+AEAD_SM4_128_CCM and AEAD_SM4_256_CCM described in [SM4-DRAFT-REF].
 
 === HMAC-Based
 
@@ -20,7 +20,8 @@ CipherSuite TLS_ECDH_RSA_WITH_SM4_CBC_SM3     = {0xYY,0xYY};
 ----
 
 These cipher suites are the same as the corresponding cipher
-suites in <<RFC5289>> (with names here ending in "_SM3" in place of "_SHA256"),
+suites in <<RFC5289>>
+(with names here ending in "_SM3" inplace of "_SHA256"),
 except for the MAC and Pseudo Random Function (PRF) algorithms.
 
 The PRF is the TLS PRF <<RFC5246>> with SM3 as the hash function.
